@@ -1,5 +1,13 @@
 import streamlit as st
-from weather import get_current_conditions, get_hourly_forecast, get_daily_forecast, get_radar_data, get_alerts, monitor_conditions
+from weather import (
+    get_current_conditions,
+    get_hourly_forecast,
+    get_daily_forecast,
+    get_radar_data,
+    monitor_conditions,
+    get_alerts,
+    weather_model
+)
 import asyncio
 import time
 from datetime import datetime
@@ -38,6 +46,13 @@ st.markdown("""
         border: 1px solid #e0e0e0;
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
+    .context-card {
+        background-color: #f8f9fa;
+        padding: 1rem;
+        border-radius: 5px;
+        margin: 0.5rem 0;
+        border: 1px solid #dee2e6;
+    }
     h1, h2, h3 {
         color: #1f1f1f;
     }
@@ -51,10 +66,17 @@ st.markdown("""
 st.title("🌤️ Real-Time Weather Dashboard")
 
 # Sidebar for location input
-st.sidebar.header("Location Settings")
-lat = st.sidebar.number_input("Latitude", value=40.7128, format="%.4f")
-lon = st.sidebar.number_input("Longitude", value=-74.0060, format="%.4f")
-state = st.sidebar.text_input("State (2-letter code)", value="NY")
+with st.sidebar:
+    st.header("Location Settings")
+    lat = st.number_input("Latitude", value=40.7128, format="%.4f")
+    lon = st.number_input("Longitude", value=-74.006, format="%.4f")
+    state = st.text_input("State (2-letter code)", value="NY").upper()
+    
+    # Display context information
+    st.markdown("---")
+    st.subheader("Context Information")
+    context_summary = weather_model.get_context_summary()
+    st.markdown(f'<div class="context-card">{context_summary}</div>', unsafe_allow_html=True)
 
 # Create tabs for different features
 tab1, tab2, tab3, tab4, tab5 = st.tabs([
