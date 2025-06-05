@@ -1,175 +1,161 @@
-# Weather Dashboard MCP 🌤️
+# Real-Time Weather Dashboard with MCP Integration
 
-A powerful real-time weather dashboard built with Streamlit and FastMCP, providing comprehensive weather data from the National Weather Service API. This application offers a user-friendly interface to access detailed weather information for any location in the United States.
+A sophisticated weather application that provides real-time weather data, forecasts, and monitoring capabilities, enhanced with Model Context Protocol (MCP) for intelligent context management.
 
-![Weather Dashboard](https://img.shields.io/badge/Weather-Dashboard-blue)
-![Python](https://img.shields.io/badge/Python-3.13+-green)
-![Streamlit](https://img.shields.io/badge/Streamlit-1.32.0+-red)
-![License](https://img.shields.io/badge/License-MIT-yellow)
+## 🌟 Latest Updates
 
-## 🌟 Features
+### MCP Integration Enhancements
+- **Context-Aware Weather System**
+  - Real-time context tracking
+  - User interaction history
+  - Weather trend analysis
+  - Smart alert system
 
-### Current Weather
-- Real-time temperature and conditions
-- Wind speed and direction
-- Humidity levels
-- Detailed weather descriptions
+### Recent Improvements
+- Fixed type conversion for weather data
+- Enhanced error handling
+- Improved real-time monitoring
+- Better context management
+- Line ending standardization
 
-### Forecasts
-- **Hourly Forecast**: Next 24 hours of weather predictions
-- **Daily Forecast**: Extended weather outlook
-- Temperature trends
-- Precipitation probability
-- Wind conditions
+## Features
 
-### Weather Radar
-- Nearest radar station information
-- Station status and location
-- Distance calculations
-- Coverage area details
+### Core Weather Features
+- Real-time current conditions
+- Hourly and daily forecasts
+- Weather radar data
+- Active weather alerts
+- Continuous weather monitoring
 
-### Weather Alerts
-- Active weather warnings
-- Severe weather notifications
-- Area-specific alerts
-- Alert severity levels
+### MCP Integration Features
+- **Context Management**
+  - Location history tracking (last 10 locations)
+  - User interaction logging (last 100 actions)
+  - Weather trend analysis (24-hour history)
+  - Alert history maintenance
 
-### Monitoring
-- Continuous weather tracking
-- Customizable update intervals
-- Real-time data refresh
-- Historical data comparison
+- **Smart Alert System**
+  - Customizable thresholds for:
+    - Temperature (min/max)
+    - Wind speed
+    - Precipitation
+  - Real-time alert generation
+  - Historical alert tracking
 
-## 🛠️ Technical Stack
+- **Weather Trend Analysis**
+  - 24-hour weather condition history
+  - Pattern recognition
+  - Historical comparisons
+  - Trend visualization
 
-- **Frontend**: Streamlit
-- **Backend**: FastMCP
-- **API**: National Weather Service (NWS)
-- **HTTP Client**: httpx
-- **Language**: Python 3.13+
+- **User Interaction Tracking**
+  - Action history with timestamps
+  - User preference management
+  - Personalized weather updates
 
-## 📋 Prerequisites
+## Technical Stack
 
-- Python 3.13 or higher
-- pip (Python package manager)
-- Git
-- Virtual environment (recommended)
-- Internet connection for API access
+- Python 3.13+
+- Streamlit for UI
+- FastMCP for context management
+- httpx for async HTTP requests
+- National Weather Service API
 
-## 🚀 Installation
+## Installation
 
-1. **Clone the repository**:
+1. Clone the repository:
 ```bash
-git clone https://github.com/wasifkhandev/weather-dashboard-mcp.git
-cd weather-dashboard-mcp
+git clone <your-repo-url>
+cd MCPServer
 ```
 
-2. **Create and activate virtual environment**:
+2. Create and activate a virtual environment:
 ```bash
-# Windows
 python -m venv venv
-venv\Scripts\activate
-
-# Unix/MacOS
-python -m venv venv
+# On Windows
+.\venv\Scripts\activate
+# On Unix/MacOS
 source venv/bin/activate
 ```
 
-3. **Install dependencies**:
+3. Install dependencies:
 ```bash
-pip install -r requirements.txt
+pip install "mcp[cli]>=1.9.2" streamlit httpx
 ```
 
-## 💻 Usage
+## Usage
 
-1. **Start the application**:
+1. Start the application:
 ```bash
 cd server
 python -m streamlit run weather_app.py
 ```
 
-2. **Access the dashboard**:
-Open your web browser and navigate to:
-```
-http://localhost:8501
-```
+2. Access the dashboard at `http://localhost:8501`
 
-3. **Using the dashboard**:
-   - Enter location coordinates in the sidebar
-   - Select your state code for alerts
-   - Use the tabs to access different features
-   - Click buttons to fetch real-time data
+3. Use the sidebar to:
+   - Set location coordinates
+   - View context information
+   - Monitor weather trends
 
-## 📍 Example Coordinates
+4. Main features available in tabs:
+   - Current Conditions
+   - Forecasts (Hourly/Daily)
+   - Radar
+   - Alerts
+   - Monitoring
 
-| City | Latitude | Longitude |
-|------|----------|-----------|
-| New York City | 40.7128 | -74.006 |
-| Los Angeles | 34.0522 | -118.2437 |
-| Chicago | 41.8781 | -87.6298 |
-| Miami | 25.7617 | -80.1918 |
-| Seattle | 47.6062 | -122.3321 |
+## MCP Context Features
 
-## 📁 Project Structure
+### Location Context
+- Tracks last 10 locations
+- Maintains location history with timestamps
+- Enables location-based trend analysis
 
-```
-weather-dashboard-mcp/
-├── server/
-│   ├── weather.py          # Core weather functionality
-│   ├── weather_app.py      # Streamlit UI
-│   └── venv/               # Virtual environment
-├── README.md              # Project documentation
-├── requirements.txt       # Project dependencies
-└── LICENSE               # MIT License
-```
+### User Interaction Context
+- Records last 100 user actions
+- Tracks interaction timestamps
+- Maintains user preferences
 
-## 🔧 API Reference
+### Weather Trend Context
+- Stores 24 hours of weather data
+- Enables pattern recognition
+- Supports historical analysis
 
-The application uses the National Weather Service (NWS) API:
-- **Base URL**: https://api.weather.gov
-- **Documentation**: https://www.weather.gov/documentation/services-web-api
-- **Rate Limits**: 30 requests per minute
-- **Data Format**: GeoJSON
+### Alert Context
+- Customizable thresholds
+- Real-time alert generation
+- Historical alert tracking
 
-## 🤝 Contributing
+## Recent Changes
+
+### Version 1.1.0
+- Added MCP context management
+- Implemented smart alert system
+- Enhanced weather trend analysis
+- Fixed type conversion issues
+- Standardized line endings
+- Improved error handling
+
+### Version 1.0.0
+- Initial release with basic weather features
+- Streamlit UI implementation
+- NWS API integration
+
+## Contributing
 
 1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
 
-### Development Guidelines
-- Follow PEP 8 style guide
-- Add comments for complex functions
-- Update documentation for new features
-- Write clear commit messages
+## License
 
-## 📝 License
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## Acknowledgments
 
-## 🙏 Acknowledgments
-
-- National Weather Service for providing the weather data API
-- Streamlit for the web application framework
-- FastMCP for the backend functionality
-- All contributors and users of the project
-
-## 📞 Support
-
-For support, please:
-1. Check the [documentation](https://www.weather.gov/documentation/services-web-api)
-2. Open an [issue](https://github.com/wasifkhandev/weather-dashboard-mcp/issues)
-3. Contact the maintainers
-
-## 🔄 Updates
-
-Stay updated with the latest changes by:
-- Watching the repository
-- Following the release notes
-- Checking the commit history
-
----
-
-Made with ❤️ by [Wasif Khan](https://github.com/wasifkhandev)
+- National Weather Service API for weather data
+- Streamlit for the web interface
+- FastMCP for context management
