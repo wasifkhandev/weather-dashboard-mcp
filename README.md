@@ -65,7 +65,7 @@ A sophisticated weather application that provides real-time weather data, foreca
 
 1. Clone the repository:
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/wasifkhandev/weather-dashboard-mcp.git
 cd MCPServer
 ```
 
